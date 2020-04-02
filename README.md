@@ -1,7 +1,18 @@
 # YouTube Player React
 
+### Description
 
+Create a video player app with React using YouTube's API
 
+### Mockups
+
+*Mockups coming soon...*
+
+### React App
+
+*Application screenshots coming soon...*
+
+### Installation Instructions
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
