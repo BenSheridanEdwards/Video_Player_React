@@ -1,4 +1,4 @@
-# YouTube Player React
+# Video Player React
 
 ### Description
 
