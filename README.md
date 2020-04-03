@@ -6,7 +6,7 @@
 
 Create a video player app with React using YouTube's API. Complete with a search bar, selected video viewport with its name and description, and a list of related videos.
 
-*Tech Stack: React/Node, Webpack, Babel, CSS, HTML*
+**Tech Stack:** *JavaScript, React, Node, Axios, Webpack, Babel, CSS, HTML*
 
 ## <a name="user-stories">User Stories</a>
 
