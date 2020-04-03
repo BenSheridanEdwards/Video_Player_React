@@ -42,9 +42,9 @@ $ cd Video_Player_React
 ```
 
 Then change directory into the React project.
-
-cd video-player
-
+```
+$ cd video-player
+```
 From inside the React project, you can run npm start in the terminal to launch the app:
 
 ```
