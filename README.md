@@ -1,20 +1,36 @@
 # Video Player React
 
-### Description
+## Description
 
-Create a video player app with React using YouTube's API
+Create a video player app with React using YouTube's API. Complete with a search bar, selected video viewport with its name and description, and a list of related videos.
 
-### Mockups
+## Mockups
 
-*Mockups coming soon...*
+### Application Layout
+![Layout Mockup](https://github.com/BenSheridanEdwards/Video_Player_React/blob/master/images/Mockups/VideoPlayer-LayoutMockup.png)
 
-### React App
+### Feature Details
+![Feature Mockup](https://github.com/BenSheridanEdwards/Video_Player_React/blob/master/images/Mockups/VideoPlayer-FeatureMockUp.png)
+
+### Application Hierarchy
+![App Hierarchy Mockup](https://github.com/BenSheridanEdwards/Video_Player_React/blob/master/images/Mockups/VideoPlayer-HierarchyMockup.png)
+
+## React App
 
 *Application screenshots coming soon...*
 
-### Installation Instructions
+## Installation Instructions
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Clone this repository from github then change directory into it.
+```
+$ git clone git@github.com:BenSheridanEdwards/Video_Player_React.git
+$ cd Video_Player_React
+```
+
+Then change directory into the React app.
+```
+cd video-player
+```
 
 ## Available Scripts
 
@@ -52,6 +68,8 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Learn More
 
