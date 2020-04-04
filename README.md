@@ -36,10 +36,7 @@ I expect to see a search bar, where I can input text to search for the type of v
 - Video Player with Title & Description
 - Video List
 
-![Application Screenrecording](https://github.com/BenSheridanEdwards/Video_Player_React/blob/master/images/Application_Showcase/Gifs/VideoPlayer-React-Application.gif)
-
-![Application Screenrecording Large]()
-
+![Application Screenrecording](https://github.com/BenSheridanEdwards/Video_Player_React/blob/master/images/Application_Showcase/Gifs/VideoPlayer-React-Application-Large.gif)
 
 ## <a name="installation">Installation Instructions</a>
 
