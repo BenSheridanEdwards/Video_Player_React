@@ -30,18 +30,27 @@ I expect to see a search bar, where I can input text to search for the type of v
 
 ## Application Showcase
 
-### Video player with default search of 'Cat'
+### Video Player
+
+Video Player with default search, 'Cat':
+
 ![Video Player Default Search](https://github.com/BenSheridanEdwards/Video_Player_React/blob/master/images/Application_Showcase/Screenshots/VideoPlayer-DefaultSearchCat.png)
 
-### Video player with [mockup](#mockups) search of 'buildings':
+### Search Videos
+
+Video player, search for 'Buildings' as shown in the mockup(#mockups):
 
 ![Mockup Search 'Buildings'](https://github.com/BenSheridanEdwards/Video_Player_React/blob/master/images/Application_Showcase/Screenshots/VideoPlayer-MockupSearchBuildings.png)
 
-### You can play a video, and see it's streaming directly from YouTube:
+### Play
+
+Play directly from YouTube:
 
 ![Play Selected Video](https://github.com/BenSheridanEdwards/Video_Player_React/blob/master/images/Application_Showcase/Screenshots/VideoPlayer-PlaySelectedVideo.png)
 
-### You can select a video from the right-hand side video list to display in the video player:
+### Select Video From List
+
+Select a video to display in the video player:
 
 ![Select video from list](https://github.com/BenSheridanEdwards/Video_Player_React/blob/master/images/Application_Showcase/Screenshots/VideoPlayer-SelectVideofromVideoList.png)
 
