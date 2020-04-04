@@ -30,35 +30,21 @@ I expect to see a search bar, where I can input text to search for the type of v
 
 ## Application Showcase
 
-### Video Player
+### Features
 
-Video Player with default search, 'Cat':
+- Search Bar (Using YouTube's API)
+- Video Player with Title & Description
+- Video List
 
-![Video Player Default Search](https://github.com/BenSheridanEdwards/Video_Player_React/blob/master/images/Application_Showcase/Screenshots/VideoPlayer-DefaultSearchCat.png)
+![Application Screenrecording](https://github.com/BenSheridanEdwards/Video_Player_React/blob/master/images/Application_Showcase/Gifs/VideoPlayer-React-Application.gif)
 
-### Search Videos
-
-Video player, search for 'Buildings' as shown in the [mockup](#mockups):
-
-![Mockup Search 'Buildings'](https://github.com/BenSheridanEdwards/Video_Player_React/blob/master/images/Application_Showcase/Screenshots/VideoPlayer-MockupSearchBuildings.png)
-
-### Play
-
-Play directly from YouTube:
-
-![Play Selected Video](https://github.com/BenSheridanEdwards/Video_Player_React/blob/master/images/Application_Showcase/Screenshots/VideoPlayer-PlaySelectedVideo.png)
-
-### Select Video From List
-
-Select a video to display in the video player:
-
-![Select video from list](https://github.com/BenSheridanEdwards/Video_Player_React/blob/master/images/Application_Showcase/Screenshots/VideoPlayer-SelectVideofromVideoList.png)
+![Application Screenrecording Large]()
 
 ## <a name="installation">Installation Instructions</a>
 
 Clone this repository from github then change directory into it.
 
-```
+`
 $ git clone git@github.com:BenSheridanEdwards/Video_Player_React.git
 $ cd Video_Player_React
 ```
