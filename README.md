@@ -38,7 +38,7 @@ Video Player with default search, 'Cat':
 
 ### Search Videos
 
-Video player, search for 'Buildings' as shown in the mockup(#mockups):
+Video player, search for 'Buildings' as shown in the [mockup](#mockups):
 
 ![Mockup Search 'Buildings'](https://github.com/BenSheridanEdwards/Video_Player_React/blob/master/images/Application_Showcase/Screenshots/VideoPlayer-MockupSearchBuildings.png)
 
