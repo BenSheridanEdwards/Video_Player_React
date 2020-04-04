@@ -40,6 +40,7 @@ I expect to see a search bar, where I can input text to search for the type of v
 
 ![Application Screenrecording Large]()
 
+
 ## <a name="installation">Installation Instructions</a>
 
 Clone this repository from github then change directory into it.
