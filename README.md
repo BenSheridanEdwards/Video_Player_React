@@ -33,7 +33,7 @@ I expect to see a search bar, where I can input text to search for the type of v
 ### Video player with default search of 'Cat'
 ![Video Player Default Search](https://github.com/BenSheridanEdwards/Video_Player_React/blob/master/images/Application_Showcase/Screenshots/VideoPlayer-DefaultSearchCat.png)
 
-### Video player with [mockup](#mockup) search of 'buildings':
+### Video player with [mockup](#mockups) search of 'buildings':
 
 ![Mockup Search 'Buildings'](https://github.com/BenSheridanEdwards/Video_Player_React/blob/master/images/Application_Showcase/Screenshots/VideoPlayer-MockupSearchBuildings.png)
 
