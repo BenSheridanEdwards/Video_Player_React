@@ -1,12 +1,16 @@
 # Video Player
 
+[![CircleCI](https://circleci.com/gh/BenSheridanEdwards/Video_Player_React.svg?style=svg)](https://circleci.com/gh/BenSheridanEdwards/Video_Player_React)
+
 [Description](#description) | [User Stories](#user-stories) | [Mockups](#mockups) | [Application Showcase](#app-showcase) | [Installation Instructions](#installation)
 
 ## <a name="description">Description</a>
 
 Create a video player app with React using YouTube's API. Complete with a search bar, selected video viewport with its name and description, and a list of related videos.
 
-**Tech Stack:** *JavaScript, React, Node, Axios, Webpack, Babel, CSS, HTML*
+**Tech Stack:** *JavaScript, React, Node, CSS, HTML, Webpack, Babel, Axios, CircleCI, Firebase*
+
+You'll find the app [here](https://video-player-react-273018.web.app/), use cmd/window + click to open in a new tab.
 
 ## <a name="user-stories">User Stories</a>
 
