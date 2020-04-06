@@ -45,21 +45,12 @@ I expect to see a search bar, where I can input text to search for the type of v
 ## <a name="installation">Installation Instructions</a>
 
 Clone this repository from github then change directory into it.
-
 ```
 $ git clone git@github.com:BenSheridanEdwards/Video_Player_React.git
 $ cd Video_Player_React
 ```
 
-Then change directory into the React project.
-
-```
-$ cd video-player
-```
-
-From inside the React project, you can run npm start in the terminal to launch the app:
-
-
+From inside the React project, you can run `npm start` in the terminal to launch the app in the browser.
 ```
 $ npm start
 ```
