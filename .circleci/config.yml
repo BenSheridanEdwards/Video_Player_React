@@ -17,6 +17,9 @@ jobs:
       - run:
             name: Install Dependencies
             command: npm install
+      - run: 
+            name: Install Axios
+            command: npm install axios
       - save_cache:
             key: v1-npm-deps-{{ checksum "package-lock.json" }}
             paths:
