@@ -9,7 +9,6 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      # Download and cache dependencies
       - restore_cache:
             keys:
               - v1-dependencies-{{ checksum "package.json" }}
@@ -17,9 +16,6 @@ jobs:
       - run:
             name: Install Dependencies
             command: npm install
-      - run: 
-            name: Install Axios
-            command: npm install axios
       - save_cache:
             key: v1-npm-deps-{{ checksum "package-lock.json" }}
             paths:
@@ -36,7 +32,7 @@ jobs:
               curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
               chmod +x ./cc-test-reporter
       - run:
-            name: Build, Save and Send Coverage Report to Code Climate
+            name: Test Coverage and send Coverage Report to Code Climate
             command: |
               ./cc-test-reporter before-build
               npm run test:coverage
