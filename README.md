@@ -67,6 +67,7 @@ I expect to be able to click the video and my video to begin playing.
   - Learn how to test events
   - Learn how to test with snapshots
 - Add styling
+- Rebuild the app from scratch using TDD
 
 ## <a name="installation">Installation Instructions</a>
 
