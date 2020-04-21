@@ -33,20 +33,19 @@ class App extends React.Component {
 
   onVideoSelect = video => {
     this.setState({ selectedVideo: video })
-    console.log(video)
   };
 
   render() {
     return (
-      <div className="ui container">
+      <div className="ui container" data-test="component-app">
         <SearchBar onFormSubmit={this.onTermSubmit} />
         <div className="ui grid">
           <div className="ui row">
             <div className="eleven wide column">
-              <VideoDetail video={this.state.selectedVideo} />
+              <VideoDetail video={this.state.selectedVideo} data-test="component-video-detail" />
             </div>
             <div className="five wide column">
-              <VideoList onVideoSelect={this.onVideoSelect} videos={ this.state.videos }/>
+              <VideoList onVideoSelect={this.onVideoSelect} videos={ this.state.videos } data-test="component-video-list"/>
             </div>
           </div>
         </div>
