@@ -32,4 +32,4 @@ describe("if the user has selected a video", () => {
     const message = findByTestAttr(wrapper, 'component-video-detail')
     expect(message.length).toBe(1)
   })
-}
+});
