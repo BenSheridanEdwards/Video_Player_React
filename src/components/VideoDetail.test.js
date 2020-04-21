@@ -5,7 +5,7 @@ import { findByTestAttr, checkProps } from '../test/testUtils';
 import VideoDetail from './VideoDetail';
 
 const defaultProps = {
-  videi: null
+  video: null
 }
 
 const setup = (props={}) => {
@@ -29,7 +29,7 @@ describe("if the user hasn't selected a video", () => {
 describe("if the user has selected a video", () => {
   it('renders the video detail component', () => {
     const wrapper = setup({ video: { snippet: { title: "video" }, id: { videoId: "123" } } })
-    const message = findByTestAttr(wrapper, 'component-video-detail')
-    expect(message.length).toBe(1)
+    const videoDetailComponent = findByTestAttr(wrapper, 'component-video-detail')
+    expect(videoDetailComponent.length).toBe(1)
   })
 });
