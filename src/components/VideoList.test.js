@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { findByTestAttr, checkProps } from '../test/testUtils';
 
 import App from './App';
@@ -19,14 +19,28 @@ it('does not throw warning with expected props', () => {
   checkProps(VideoList, defaultProps)
 })
 
-it('renders a video item list', () => {
+it('renders the video list component', () => {
   const wrapper = setup({ videos: [] })
-  const videoItemList = findByTestAttr(wrapper, 'video-item-list')
-  expect(videoItemList.length).toBe(1)
+  const componentVideoList = findByTestAttr(wrapper, 'component-video-list')
+  expect(componentVideoList.length).toBe(1)
 })
 
-// it('renders a video item component', () => {
-//   const wrapper = setup({ videos: [ { video: { id: { videoId: "123" } } }] })
-//   const videoItemComponent = findByTestAttr(wrapper, 'component-video-item')
-//   expect(videoItemComponent.length).toBe(1)
-// })
+describe("when a video has been selected", () => {
+  let mockFunction
+  let wrapper
+  beforeEach(() => {
+    mockFunction = jest.fn()
+    const video = { snippet: { thumbnails: { medium: "123"}, title: "title"}, id: { videoId: "123"}}
+    wrapper = setup({videos: [video], onVideoSelect: {mockFunction}})
+  })
+
+  it("should call the onVideoSelect function", () => {
+    expect(mockFunction).toHaveBeenCalled
+  });
+
+  it("should render a list of video items", () => {
+    const videoItemList = findByTestAttr(wrapper, 'component-video-item')
+    expect(videoItemList.length).toBe(1)
+  })
+
+})
