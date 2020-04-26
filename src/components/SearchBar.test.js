@@ -28,7 +28,7 @@ it('should call onFormSubmit when a search term is submitted', () => {
   component.unmount();
 });
 
-it("should change the 'term' state when the input is changed", () => {
+it("should change the update the state of 'term' when the input is changed", () => {
   const component = mount(<SearchBar />);
 
   expect(component.state()).toEqual({ term: "" })
