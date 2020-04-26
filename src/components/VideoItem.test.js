@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { findByTestAttr, checkProps } from '../test/testUtils';
 
 import App from './App';
@@ -30,3 +30,16 @@ it("renders a video item's title", () =>{
   const videoItemTitle = findByTestAttr(wrapper, 'video-item-title')
   expect(videoItemTitle.text()).toEqual("videoTitle")
 })
+
+it('should call onVideoSelect when a video is selected', () => {
+  const mockFunction = jest.fn();
+  const component = mount(
+    <VideoItem 
+    video={ {snippet: {title: "123", thumbnails: { medium: { url: "23" }}} } }
+    onVideoSelect={mockFunction} 
+    />
+  );
+  component.find('div').at(0).simulate('click');
+  expect(mockFunction).toHaveBeenCalled();
+  component.unmount();
+});
