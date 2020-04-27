@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme, { shallow, ShallowWrapper } from 'enzyme';
+import Enzyme, { shallow, ShallowWrapper, mount } from 'enzyme';
 import { findByTestAttr } from '../test/testUtils';
 
 import App from './App';
@@ -35,3 +35,9 @@ it("renders the VideoList component", () =>{
   const appComponent = findByTestAttr(wrapper, 'component-video-list');
   expect(appComponent.length).toBe(1);
 });
+
+it('calls componentDidMount', () => {
+  jest.spyOn(App.prototype, 'componentDidMount')
+  const wrapper = shallow(<App />)
+  expect(App.prototype.componentDidMount.mock.calls.length).toBe(1)
+})
