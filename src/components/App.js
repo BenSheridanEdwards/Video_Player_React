@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchBar from './SearchBar';
-import youtube from '../apis/youtube';
+import axios from 'axios'
 import VideoList from './VideoList';
 import VideoDetail from './VideoDetail';
 
@@ -12,15 +12,15 @@ class App extends React.Component {
   }
   
   onTermSubmit = async term => {
-    const KEY = 'AIzaSyAPVtFX1-MfrL_LONvpYCDa3chTzDuRQBc';
+    const baseURL = 'https://www.googleapis.com/youtube/v3'
 
-    const response = await youtube.get("/search", {
+    const response = await axios.get(baseURL + "/search", {
       params: {
         q: term,
         part: "snippet",
         maxResults: 5,
         type: 'video',
-        key: `${KEY}`
+        key: process.env.REACT_APP_YOUTUBE_API_KEY
       }
     });
 
