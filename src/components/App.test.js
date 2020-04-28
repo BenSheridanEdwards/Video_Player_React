@@ -57,3 +57,21 @@ it('calls axios and returns youtube videos', async () => {
   expect(mockAxios.get).toHaveBeenCalledTimes(6);
   expect(mockAxios.get).toHaveBeenCalledWith("https://www.googleapis.com/youtube/v3/search", {"params": {"key": "AIzaSyAPVtFX1-MfrL_LONvpYCDa3chTzDuRQBc", "maxResults": 5, "part": "snippet", "q": "Cat", "type": "video"}})
 })
+
+describe('when a video has been selected', () => {
+  let componentApp
+  beforeEach(() => {
+    componentApp = mount(<App />);
+  })
+
+  afterEach(() => {
+    componentApp.unmount()
+  })
+
+  it('should set the selected video on the state object', () => {
+    expect(componentApp.state()).toEqual({"selectedVideo": undefined, "videos": []})
+    const video = { snippet: { title: "cat video" }, id: { videoId: "1" } }
+    componentApp.instance().onVideoSelect(video)
+    expect(componentApp.state()).toEqual({"selectedVideo": {"id": {"videoId": "1"}, "snippet": {"title": "cat video"}}, "videos": []})
+  });
+})
