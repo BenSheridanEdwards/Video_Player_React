@@ -89,7 +89,7 @@ Launching the app from the command line should open up a new tab in your default
 
 ### Running Tests
 
-From inside the project folder, you can run `npm start` in the terminal to run the test suite. 
+From inside the project folder, you can run `npm test` in the terminal to run the test suite. 
 
 ```
 $ npm test
