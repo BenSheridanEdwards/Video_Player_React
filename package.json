@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
-    "firebase-tools": "^8.0.1",
+    "firebase-tools": "^8.4.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
@@ -40,8 +40,9 @@
     "check-props": "^2.1.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    "jest": "^25.4.0",
-    "jest-enzyme": "^7.1.2"
+    "jest": "^25.5.4",
+    "jest-enzyme": "^7.1.2",
+    "websocket-extensions": ">=0.1.4"
   },
   "jest": {
     "collectCoverageFrom": [
