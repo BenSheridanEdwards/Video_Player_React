@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 class SearchBar extends React.Component {
-  state = { term: '' };
+  state = { term: "" };
 
   onInputChange = event => {
-    this.setState({ term: event.target.value })
+    this.setState({ term: event.target.value });
   };
 
   onFormSubmit = event => {
@@ -18,11 +18,11 @@ class SearchBar extends React.Component {
         <form onSubmit={this.onFormSubmit} className="ui form">
           <div className="field">
             <label>Video Search</label>
-            <input 
-              type="text" 
+            <input
+              type="text"
               value={this.state.term}
               onChange={this.onInputChange}
-              />
+            />
           </div>
         </form>
       </div>
@@ -30,4 +30,4 @@ class SearchBar extends React.Component {
   }
 }
 
-export default SearchBar
+export default SearchBar;
