@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow, mount } from "enzyme";
+import { shallow } from "enzyme";
 import { findByTestAttr, checkProps } from "../test/testUtils";
 
 import App from "./App";
