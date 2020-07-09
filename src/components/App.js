@@ -7,10 +7,6 @@ import VideoDetail from "./VideoDetail";
 class App extends React.Component {
   state = { videos: [], selectedVideo: null };
 
-  componentDidMount() {
-    // this.onTermSubmit("cat")
-  }
-
   onTermSubmit = async term => {
     const baseURL = "https://www.googleapis.com/youtube/v3";
 

@@ -1,9 +1,9 @@
-import React from 'react';
-import Enzyme, { shallow, ShallowWrapper, mount } from 'enzyme';
-import { findByTestAttr } from '../test/testUtils';
-import mockAxios from 'axios'
+import React from "react";
+import { shallow, mount } from "enzyme";
+import { findByTestAttr } from "../test/testUtils";
+import mockAxios from "axios";
 
-import App from './App';
+import App from "./App";
 
 /**
  * Factory function to create a ShallowWrapper for the App component.
@@ -11,67 +11,74 @@ import App from './App';
  * @param {object} props - Component props specific to this setup.
  * @param {object} state - Initial state for setup
  * @returns {ShallowWrapper}
-*/
+ */
 
-const setup = (props={}, state=null) => {
-  const wrapper = shallow(<App {...props} />)
-  if (state) wrapper.setState(state)
-    return wrapper;
-}
+const setup = (props = {}, state = null) => {
+  const wrapper = shallow(<App {...props} />);
+  if (state) wrapper.setState(state);
+  return wrapper;
+};
 
-it('renders without error', () =>{
+it("renders without error", () => {
   const wrapper = setup();
-  const appComponent = findByTestAttr(wrapper, 'component-app');
+  const appComponent = findByTestAttr(wrapper, "component-app");
   expect(appComponent.length).toBe(1);
 });
 
-it("renders the VideoDetail component", () =>{
+it("renders the VideoDetail component", () => {
   const wrapper = setup({}, { videos: [], selectedVideo: null });
-  const appComponent = findByTestAttr(wrapper, 'component-video-detail');
+  const appComponent = findByTestAttr(wrapper, "component-video-detail");
   expect(appComponent.length).toBe(1);
 });
 
-it("renders the VideoList component", () =>{
+it("renders the VideoList component", () => {
   const wrapper = setup({}, { videos: [], selectedVideo: null });
-  const appComponent = findByTestAttr(wrapper, 'component-video-list');
+  const appComponent = findByTestAttr(wrapper, "component-video-list");
   expect(appComponent.length).toBe(1);
 });
 
-it('calls componentDidMount', () => {
-  jest.spyOn(App.prototype, 'componentDidMount')
-  const wrapper = shallow(<App />)
-  expect(App.prototype.componentDidMount.mock.calls.length).toBe(1)
-})
-
-it('calls axios and returns youtube videos', async () => {
-  mockAxios.get.mockImplementationOnce(() => 
+it("calls axios and returns youtube videos", async () => {
+  mockAxios.get.mockImplementationOnce(() =>
     Promise.resolve({
-      data: { 
-        items: [] 
+      data: {
+        items: []
       }
-    }))
- 
-  const wrapper = setup()
-  const videos = await wrapper.instance().onTermSubmit('cats')
-  expect(wrapper.state()).toEqual({"selectedVideo": undefined, "videos": []})
-  expect(mockAxios.get).toHaveBeenCalledTimes(6);
-  expect(mockAxios.get).toHaveBeenCalledWith("https://www.googleapis.com/youtube/v3/search", {"params": {"key": "AIzaSyAPVtFX1-MfrL_LONvpYCDa3chTzDuRQBc", "maxResults": 5, "part": "snippet", "q": "Cat", "type": "video"}})
-})
+    })
+  );
 
-describe('when a video has been selected', () => {
-  let componentApp
+  const wrapper = setup();
+  const videos = await wrapper.instance().onTermSubmit("cats");
+  expect(mockAxios.get).toHaveBeenCalledTimes(1);
+  expect(mockAxios.get).toHaveBeenCalledWith(
+    "https://www.googleapis.com/youtube/v3/search",
+    {
+      params: {
+        key: `${process.env.REACT_APP_YOUTUBE_API_KEY}`,
+        maxResults: 5,
+        part: "snippet",
+        q: "cats",
+        type: "video"
+      }
+    }
+  );
+});
+
+describe("when a video has been selected", () => {
+  let componentApp;
   beforeEach(() => {
     componentApp = mount(<App />);
-  })
+  });
 
   afterEach(() => {
-    componentApp.unmount()
-  })
-
-  it('should set the selected video on the state object', () => {
-    expect(componentApp.state()).toEqual({"selectedVideo": undefined, "videos": []})
-    const video = { snippet: { title: "cat video" }, id: { videoId: "1" } }
-    componentApp.instance().onVideoSelect(video)
-    expect(componentApp.state()).toEqual({"selectedVideo": {"id": {"videoId": "1"}, "snippet": {"title": "cat video"}}, "videos": []})
+    componentApp.unmount();
   });
-})
+
+  it("should set the selected video on the state object", () => {
+    const video = { snippet: { title: "cat video" }, id: { videoId: "1" } };
+    componentApp.instance().onVideoSelect(video);
+    expect(componentApp.state()).toEqual({
+      selectedVideo: { id: { videoId: "1" }, snippet: { title: "cat video" } },
+      videos: []
+    });
+  });
+});
