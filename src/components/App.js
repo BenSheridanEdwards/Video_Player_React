@@ -7,10 +7,10 @@ import VideoDetail from "./VideoDetail/VideoDetail";
 class App extends React.Component {
   state = { videos: [], selectedVideo: null };
 
-  fetchData = async term => {
+  onTermSubmit = async term => {
     const baseURL = "https://www.googleapis.com/youtube/v3";
 
-    return await axios.get(baseURL + "/search", {
+    const response = await axios.get(baseURL + "/search", {
       params: {
         q: term,
         part: "snippet",
@@ -19,19 +19,19 @@ class App extends React.Component {
         key: process.env.YOUTUBE_API_KEY
       }
     });
-  };
-
-  onTermSubmit = async term => {
-    const response = await this.fetchData(term);
-
-    this.setState({
-      videos: response.data.items,
-      selectedVideo: response.data.items[0]
-    });
+    this.setVideosToState(response);
+    return response;
   };
 
   onVideoSelect = video => {
     this.setState({ selectedVideo: video });
+  };
+
+  setVideosToState = response => {
+    this.setState({
+      videos: response.data.items,
+      selectedVideo: response.data.items[0]
+    });
   };
 
   render() {

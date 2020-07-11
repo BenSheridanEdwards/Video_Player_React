@@ -37,59 +37,70 @@ it("renders the VideoList component", () => {
   expect(appComponent.length).toBe(1);
 });
 
-it("successfully fetches data from Youtube's data API", async () => {
-  const data = {
-    items: []
-  };
-  const wrapper = setup({}, { videos: [], selectedVideo: null });
+describe("onTermSubmit", () => {
+  it("successfully fetches data from Youtube's data API", async () => {
+    const data = { data: { items: [{ video: "video" }] } };
 
-  axios.get.mockImplementationOnce(() => Promise.resolve(data));
+    const wrapper = setup({}, { videos: [], selectedVideo: null });
 
-  await expect(wrapper.instance().fetchData("Cat")).resolves.toEqual(data);
+    axios.get.mockImplementationOnce(() => Promise.resolve(data));
 
-  expect(axios.get).toHaveBeenCalledWith(
-    "https://www.googleapis.com/youtube/v3/search",
-    {
-      params: {
-        key: process.env.YOUTUBE_API_KEY,
-        maxResults: 5,
-        part: "snippet",
-        q: "Cat",
-        type: "video"
+    await expect(wrapper.instance().onTermSubmit("Cat")).resolves.toEqual(data);
+
+    expect(axios.get).toHaveBeenCalledWith(
+      "https://www.googleapis.com/youtube/v3/search",
+      {
+        params: {
+          key: process.env.YOUTUBE_API_KEY,
+          maxResults: 5,
+          part: "snippet",
+          q: "Cat",
+          type: "video"
+        }
       }
-    }
-  );
-});
-
-it("erroneously fetches data from YouTube's data API", async () => {
-  const errorMessage = "Network Error";
-  const wrapper = setup({}, { videos: [], selectedVideo: null });
-
-  axios.get.mockImplementationOnce(() =>
-    Promise.reject(new Error(errorMessage))
-  );
-
-  await expect(wrapper.instance().fetchData("Cat")).rejects.toThrow(
-    errorMessage
-  );
-});
-
-describe("when a video has been selected", () => {
-  let componentApp;
-  beforeEach(() => {
-    componentApp = mount(<App />);
+    );
   });
 
-  afterEach(() => {
-    componentApp.unmount();
-  });
+  it("throws an error when it erroneously fetches data from YouTube's data API", async () => {
+    const errorMessage = "Network Error";
+    const wrapper = setup({}, { videos: [], selectedVideo: null });
 
-  it("should set the selected video on the state object", () => {
+    axios.get.mockImplementationOnce(() =>
+      Promise.reject(new Error(errorMessage))
+    );
+
+    await expect(wrapper.instance().onTermSubmit("Cat")).rejects.toThrow(
+      errorMessage
+    );
+  });
+});
+
+describe("setVideosToState", () => {
+  it("takes in an API response object and maps the video items contained inside to the state", () => {
+    const response = { data: { items: [{ video: "video" }] } };
+    const wrapper = setup({}, { videos: [], selectedVideo: null });
+
+    wrapper.instance().setVideosToState(response);
+
+    expect(wrapper.state()).toEqual({
+      selectedVideo: { video: "video" },
+      videos: [{ video: "video" }]
+    });
+  });
+});
+
+describe("onVideoSelect", () => {
+  it("sets the state to the selected video", () => {
     const video = { snippet: { title: "cat video" }, id: { videoId: "1" } };
+
+    let componentApp = mount(<App />);
     componentApp.instance().onVideoSelect(video);
+
     expect(componentApp.state()).toEqual({
       selectedVideo: { id: { videoId: "1" }, snippet: { title: "cat video" } },
       videos: []
     });
+
+    componentApp.unmount();
   });
 });
