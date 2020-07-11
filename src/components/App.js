@@ -1,8 +1,8 @@
 import React from "react";
-import SearchBar from "./SearchBar";
+import SearchBar from "./SearchBar/SearchBar";
 import axios from "axios";
-import VideoList from "./VideoList";
-import VideoDetail from "./VideoDetail";
+import VideoList from "./VideoList/VideoList";
+import VideoDetail from "./VideoDetail/VideoDetail";
 
 class App extends React.Component {
   state = { videos: [], selectedVideo: null };
