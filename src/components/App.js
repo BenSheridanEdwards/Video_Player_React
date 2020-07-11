@@ -7,18 +7,22 @@ import VideoDetail from "./VideoDetail/VideoDetail";
 class App extends React.Component {
   state = { videos: [], selectedVideo: null };
 
-  onTermSubmit = async term => {
+  fetchData = async term => {
     const baseURL = "https://www.googleapis.com/youtube/v3";
 
-    const response = await axios.get(baseURL + "/search", {
+    return await axios.get(baseURL + "/search", {
       params: {
         q: term,
         part: "snippet",
         maxResults: 5,
         type: "video",
-        key: process.env.REACT_APP_YOUTUBE_API_KEY
+        key: process.env.YOUTUBE_API_KEY
       }
     });
+  };
+
+  onTermSubmit = async term => {
+    const response = await this.fetchData(term);
 
     this.setState({
       videos: response.data.items,

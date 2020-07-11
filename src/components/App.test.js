@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 import { findByTestAttr } from "../test/testUtils";
-import mockAxios from "axios";
+import axios from "axios";
 
 import App from "./App";
 
@@ -37,29 +37,40 @@ it("renders the VideoList component", () => {
   expect(appComponent.length).toBe(1);
 });
 
-it("calls axios and returns youtube videos", async () => {
-  mockAxios.get.mockImplementationOnce(() =>
-    Promise.resolve({
-      data: {
-        items: []
-      }
-    })
-  );
+it("successfully fetches data from Youtube's data API", async () => {
+  const data = {
+    items: []
+  };
+  const wrapper = setup({}, { videos: [], selectedVideo: null });
 
-  const wrapper = setup();
-  const videos = await wrapper.instance().onTermSubmit("cats");
-  expect(mockAxios.get).toHaveBeenCalledTimes(1);
-  expect(mockAxios.get).toHaveBeenCalledWith(
+  axios.get.mockImplementationOnce(() => Promise.resolve(data));
+
+  await expect(wrapper.instance().fetchData("Cat")).resolves.toEqual(data);
+
+  expect(axios.get).toHaveBeenCalledWith(
     "https://www.googleapis.com/youtube/v3/search",
     {
       params: {
-        key: `${process.env.REACT_APP_YOUTUBE_API_KEY}`,
+        key: process.env.YOUTUBE_API_KEY,
         maxResults: 5,
         part: "snippet",
-        q: "cats",
+        q: "Cat",
         type: "video"
       }
     }
+  );
+});
+
+it("erroneously fetches data from YouTube's data API", async () => {
+  const errorMessage = "Network Error";
+  const wrapper = setup({}, { videos: [], selectedVideo: null });
+
+  axios.get.mockImplementationOnce(() =>
+    Promise.reject(new Error(errorMessage))
+  );
+
+  await expect(wrapper.instance().fetchData("Cat")).rejects.toThrow(
+    errorMessage
   );
 });
 
