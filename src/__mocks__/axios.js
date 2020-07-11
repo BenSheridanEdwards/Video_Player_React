@@ -1,5 +1,3 @@
 export default {
-  get: jest.fn(() => 
-    Promise.resolve({data: { items: [] }})
-  )
-}
+  get: jest.fn(() => Promise.resolve({ data: { items: [] } }))
+};
