@@ -18,11 +18,11 @@ it("does not throw warning with expected props", () => {
 });
 
 describe("if the user hasn't selected a video", () => {
-  it("renders a loading message when there is no video", () => {
+  it("renders a prompt message when there is no video", () => {
     const wrapper = setup({ video: null });
-    const message = findByTestAttr(wrapper, "loading-message");
+    const message = findByTestAttr(wrapper, "prompt-message");
     expect(message.length).toBe(1);
-    expect(message.text()).toEqual("Loading...");
+    expect(message.text()).toEqual("Search a term to display videos");
   });
 });
 
