@@ -10,7 +10,7 @@
 
 Create a video player app with React using YouTube's API. Complete with a search bar, selected video viewport with its name and description, and a list of related videos.
 
-**Tech Stack:** *JavaScript, React, Node, CSS, HTML, Jest, Enzyme, Axios, Webpack, Babel, CircleCI, Code Climate, Firebase*
+**Tech Stack:** *JavaScript, React, CSS, HTML, Jest, Enzyme, Axios, Webpack, Babel, CircleCI, Code Climate, Firebase*
 
 You'll find the app [here](https://video-player-react-273018.web.app/), use cmd/window + click to open in a new tab.
 
